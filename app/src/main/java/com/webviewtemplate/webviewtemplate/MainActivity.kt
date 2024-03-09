@@ -13,7 +13,7 @@ class MainActivity : Activity() {
     //private val applicationUrl = "file:///android_asset/index.html"
     //or you can load url
     //private val applicationUrl ="https://www.programmerbee.com/"
-    private val applicationUrl = "https://www.wikipedia.org/"
+    private val applicationUrl = "https://www.bing.com/copilot"
     
     private lateinit var binding: ActivityMainBinding
     private lateinit var webView: WebView
