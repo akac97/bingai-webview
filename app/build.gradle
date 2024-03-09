@@ -1,44 +1,52 @@
 plugins {
-        id 'com.android.application'
-        id 'kotlin-android'
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.webviewtemplate.webviewtemplate'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.webviewtemplate.webviewtemplate"
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
     }
 
-
-    android {
-        namespace 'com.webviewtemplate.webviewtemplate'
-        compileSdk 34
-
-        defaultConfig {
-            applicationId "com.webviewtemplate.webviewtemplate"
-            minSdk 28
-            targetSdk 34
-            versionCode 1
-            versionName "1.0.0"
-        }
-
-        buildTypes {
-            release {
-                minifyEnabled true
-                shrinkResources true
-                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            }
-        }
-
-        buildFeatures {
-            viewBinding true
-        }
-
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_11
-            targetCompatibility JavaVersion.VERSION_11
-        }
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    dependencies {
-        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-        implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-        implementation 'androidx.webkit:webkit:1.10.0'
+    buildFeatures {
+        viewBinding true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a'
+            universalApk true
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.webkit:webkit:1.10.0'
+}
