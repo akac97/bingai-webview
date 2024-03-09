@@ -1,5 +1,6 @@
 package com.webviewtemplate.webviewtemplate
 
+import android.os.Bundle
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Build
